@@ -1,0 +1,3 @@
+class Foursquare < UserService
+  
+end
