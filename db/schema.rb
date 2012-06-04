@@ -11,16 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120602024723) do
+ActiveRecord::Schema.define(:version => 20120604012650) do
 
   create_table "services", :force => true do |t|
-    t.string   "name"
-    t.string   "homepage"
-    t.text     "description"
+    t.integer  "user_id"
     t.string   "type"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "access_token"
+    t.string   "refresh_token"
+    t.string   "latest_error"
   end
+
+  add_index "services", ["user_id"], :name => "index_services_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"
@@ -28,16 +31,6 @@ ActiveRecord::Schema.define(:version => 20120602024723) do
     t.string   "salt"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-  end
-
-  create_table "users_services", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "service_id"
-    t.text     "key"
-    t.text     "secret"
-    t.string   "token"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
 end

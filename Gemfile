@@ -9,6 +9,10 @@ gem 'sqlite3'
 gem 'sorcery'
 gem "twitter-bootstrap-rails"
 gem "simple_form"
+gem "figaro"
+gem "httparty"
+gem "addressable"
+#gem "oauth-plugin", "~> 0.4.0"
 
 # Gems used only for assets and not required
 # in production environments by default.

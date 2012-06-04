@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-  has_many :user_services
-  has_many :services, :through => :user_services
+  has_many :services
 
   # attr_accessible :title, :body
   validates_confirmation_of :password
